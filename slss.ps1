@@ -1,11 +1,11 @@
 # This function can perform sls / select-string / grep functionality on piped objects which are converted to strings
 
-Function slss($x)
+Function slss($x, $context = @(1,1))
 
 {
  foreach($a in $input)
 
-  { $a | out-string -stream | select-string $x  }
+  { $a | out-string -stream | select-string $x -context $context }
 
 } #end function slss
 
@@ -13,9 +13,7 @@ Function slss($x)
 =======
 Example:
 ========
-
 PS C:\> get-service | slss ds
-
 Stopped  AppIDSvc           Application Identity                  
 Running  DsmSvc             Device Setup Manager                  
 Stopped  DsRoleSvc          DS Role Server                        
