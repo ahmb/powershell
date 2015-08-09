@@ -1,1 +1,1 @@
-# powershell
+# powershell snippets/collection
